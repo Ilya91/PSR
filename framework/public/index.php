@@ -1,3 +1,9 @@
 <?php
+require_once '../vendor/autoload.php';
 
-echo 'hello world!';
+use Framework\Http\Request;
+$request = new Request();
+
+$name = $request->getQueryParams()['name'] ?? 'Guest';
+header('developer: hello');
+echo 'Hello, ' . $name . '!';
